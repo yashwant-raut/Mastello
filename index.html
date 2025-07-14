@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Model Viewer with Sidebar</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+
+      #sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 220px;
+        height: 100%;
+        background-color: #f3f3f3;
+        border-right: 1px solid #ddd;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+        z-index: 2;
+        overflow: auto;
+      }
+
+      #sidebar img {
+        width: 200px;
+        height: 200px;
+        border: black 1px solid;
+        cursor: pointer;
+        transition: border-color 0.2s;
+      }
+
+      #sidebar img:hover {
+        border-color: #0078ff;
+      }
+
+      #viewer {
+        margin-left: 120px;  
+        width: calc(100% - 120px);
+        height: 100%;
+        background-color: #eaeaea;
+        position: relative;
+        z-index: 1;
+      }
+
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sidebar">
+      <img
+        src="thumbnails/DraAmsterdam.png"
+        data-model="DRY Amsterdam"
+        alt="Model 0"
+      />
+      <img src="thumbnails/Tap-1-N.png" data-model="MA02-400" alt="Model 1" />
+      <img src="thumbnails/Tap-1-V.png" data-model="MB03" alt="Model 2" />
+      <img src="thumbnails/Tap-2-N.png" data-model="MB04-R3" alt="Model 3" />
+      <img
+        src="thumbnails/handheld-shower.png"
+        data-model="MP01-R"
+        alt="Model 4"
+      />
+      <img src="thumbnails/Shower.png" data-model="MP01S-B" alt="Model 5" />
+      <img src="thumbnails/Tap-4.png" data-model="MS05" alt="Model 6" />
+      <img src="thumbnails/Mixer.png" data-model="MTV22TS" alt="Model 7" />
+      <img
+        src="thumbnails/Mixer-single.png"
+        data-model="MW03S-FIN"
+        alt="Model 8"
+      />
+      <img src="thumbnails/Shower-bar.png" data-model="MZ04B" alt="Model 9" />
+      <img src="thumbnails/U-Bend.png" data-model="MZ06B" alt="Model 10" />
+    </div>
+
+    <ca id="viewer">
+      <!-- Three.js canvas will be injected here -->
+    </div>
+
+    <!-- Include your main JS that mounts Three.js scene here -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
